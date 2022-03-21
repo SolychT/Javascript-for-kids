@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru, en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="main-heading">Привет, мир!</h1>
+    <h2>Hello world!</h2>
+     <!-- подключаем jQuery -->
+     <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+    <script>
+        //получается блымканье
+        for (var i =0; i < 100; i++){
+        $("h1").fadeOut(1000);
+        $("h1").fadeIn(1000);
+        };
+    </script>
+    <script>
+        //занавес
+        for (var i =0; i < 100; i++){
+        $("h2").hide(1000);
+        $("h2").show(1000);
+        };
+    </script>
+
+</body>
+</html>

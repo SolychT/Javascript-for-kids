@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Перечислите своих друзей (и сделайте их лучшими!)</title>
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+    <h1>Привет мир!</h1>
+    <script>
+        $("h1").text("Мои друзья")
+        var friends = [
+            "Антон", "Влад",
+            "Витя", "Настя"
+        ];
+        for (var i = 0; i < friends.length; i++){
+            $("body").append("<p>" + friends[i] +"</p>")
+        }
+        $("p").hide();
+        $("p").fadeIn(2000);
+        $("p").append(" - лучший друг")
+    </script>
+
+</body>
+</html>
