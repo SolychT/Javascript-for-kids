@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="main-header">Привет, мир!</h1>
+    <script>
+        var headingElement = document.getElementById("main-header");
+        console.log(headingElement.innerHTML); 
+        // мы вывели в консоль строку, возвращенную вызовом
+        // headingElement.innerHTML — то есть "Привет, мир!". 
+        var newHeadingElement = prompt("Введите новое название");
+        headingElement.innerHTML=newHeadingElement;
+        // Обращаясь к свойству innerHTML, можно поменять содержимое
+        // любого элемента DOM через JavaScript-код.
+    </script>
+</body>
+</html>

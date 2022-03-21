@@ -1,0 +1,42 @@
+<!-- jQuery — это набор инструментов (в основном функций), которые
+сильно упрощают работу с DOM-элементами. Подключив эту библиотеку
+к нашей страничке, мы сможем вызывать ее функции и методы в
+ дополнение к функциям и методам, встроенным в JavaScript и в браузер. -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+ </head>
+ <body>
+     <h1 id="main-heading">Привет, мир!</h1>
+     <!-- подключаем jQuery -->
+     <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+     <script>
+         
+         var newHeadingText = prompt("Введите новый заголовок:");
+         $("#main-heading").text(newHeadingText);
+        //  jQuery-функция $ для поиска html документов
+     </script>
+     <!-- помещаем в конец кода новый элемент с помощью функции append -->
+     <script>
+         $("body").append("<p>Это новый параграф</p>");
+     </script>
+     <!-- так же append можно использовать
+     в цикли for для добавления нескольких элементов -->
+     <script>
+         for (var i=0; i < 3; i++) {
+             var hobby = prompt("Назови одно из своих хобби");
+             $("body").append("<p>" + hobby + "</p>");
+         }
+     </script>
+     <!-- запустим цепь исчезаний и появлений -->
+     <script>
+         $("h1").text("Этот текст скоро исчезнет").fadeOut(5000);
+         $("h1").slideUp(3000).slideDown(2000);
+         
+     </script>
+ </body>
+ </html>
