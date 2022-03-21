@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Найди клад!</title>
+</head>
+<body>
+    <h1 id="heading">Найди клад!</h1>
+
+    <img id="map" width="400" height="400"
+    src="http://nostarch.com/images/treasuremap.png" >
+
+    <!-- здесь будем выводить подсказки для игрока -->
+    <p id="distance"></p>
+
+    <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+
+    <!-- Ниже код игры -->
+    <script>
+        //Указываем случайную точку где разместится клад 
+        var getRandomNumber = function(size){
+            return Math.floor(Math.random()*size);
+            }
+        //Задаем координаты клада
+        var width = 400;
+        var height = 400;
+
+        var target = {
+            x: getRandomNumber(width),
+            y: getRandomNumber(height)
+        };
+
+        //Обработчик кликов - функция, будет вызываться
+        //каждый раз, как игрок будет кликать по карте
+        $("map").click(function(event){
+            //код обработчика
+
+        });
+        var clicks = 0; //будем остлеживать число кликов по карте
+
+        //выясняем, "горячо" или "холодно" до клада
+        //нужно найти расстояние между точкой клика
+        //и местом где лежит клад.
+        var getDistance = function(event, target){
+            var diffX = event.offsetX - target.X;
+            var diffY = event.offsetY - target.Y;
+            return Math.sqrt((diffX*diffX)+(diffY*diffY));
+            //расстояние между кликом и кладом
+        };
+
+        //теперь сообщаем игроку насколько он близок
+        var getDistanceHint = function(distance){
+            if (distance < 10) {
+                return "Обожжешься!";
+            } else if (distance < 20) {
+                return "Очень горячо";
+            } else if (distance < 40) {
+                return "Горячо";
+            }  else if (distance < 80) {
+                return "Тепло"; 
+            } else if (distance < 160) {
+                return "Холодно";
+            } else if (distance < 320) {
+                return "Замерзнешь";
+            }
+        };
+
+        //выясняем расстояние, получаем нужную строку и отобразим её
+        var distance = getDistance(event,target);
+        var distanceHint = getDistanceHint(distance);
+        $("#distance").text(distanceHint); //передаём в <p> текст
+                
+        //Проверка на выигрыш
+        if (distance < 8){
+            alert("Клад найден! Сделано кликов: " + clicks);
+        }
+    </script>
+</body>
+</html>
